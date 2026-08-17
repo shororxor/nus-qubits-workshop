@@ -12,6 +12,14 @@ def kernel():
         x.ctrl(qubits[0], qubits[i])
     mz(qubits)
 
+@cudaq.kernel
+def kernel2(qubit_count: int):
+    qvector = cudaq.qvector(qubit_count)
+    h(qvector[0])
+    for i in range(0, qubit_count - 1):
+        x.ctrl(qvector[i], qvector[i + 1])
+    mz(qvector)
+
 def main() -> None:
     result = cudaq.sample(kernel)
     print(f"Result = {result}");
