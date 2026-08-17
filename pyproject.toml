@@ -1,0 +1,28 @@
+[project]
+name = "quantum"
+version = "0.1.0"
+description = "Explore quantum computing through coding"
+readme = "README.md"
+authors = [
+    { name = "Bao Nguyen", email = "bao.nguyen@u.nus.edu" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "cudaq>=0.15.1",
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.2",
+    "qutip>=5.3.1",
+]
+
+[project.scripts]
+quantum = "quantum:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "ruff>=0.16.3",
+]
